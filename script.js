@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ============ SKOK NA SEKCI — NA DESKTOPU ROVNOU NA STŘED OBRAZOVKY ============ */
     const HEADER_HEIGHT = 72;
+    // O trochu méně než výška hlavičky — ať cílová sekce zajede kousek
+    // pod ni, jinak byl na mobilu pod hlavičkou vidět tenký proužek
+    // předchozí (světlé) sekce.
+    const MOBILE_SCROLL_OFFSET = HEADER_HEIGHT - 10;
 
     const scrollSectionIntoPlace = (section) => {
         const isDesktop = window.matchMedia('(min-width: 901px)').matches;
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (isDesktop) {
             targetY = window.scrollY + rectTop + section.offsetHeight / 2 - window.innerHeight / 2;
         } else {
-            targetY = window.scrollY + rectTop - HEADER_HEIGHT;
+            targetY = window.scrollY + rectTop - MOBILE_SCROLL_OFFSET;
         }
 
         window.scrollTo({ top: Math.min(Math.max(0, targetY), maxScrollY), behavior: prefersReducedMotion ? 'auto' : 'smooth' });

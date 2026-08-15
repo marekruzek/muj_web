@@ -54,6 +54,13 @@ html {
        o pár pixelů vpravo. Tímhle má scrollbar vždy stejnou rezervovanou
        šířku bez ohledu na to, jestli se zrovna scrolluje. */
     scrollbar-gutter: stable;
+    /* Barva pod stránkou samotnou — na mobilu/tabletu (hlavně iOS) se při
+       doskrolování na úplný konec, elastickém odrazu nebo otočení na šířku
+       na okamžik ukáže kousek plochy pod stránkou. Necháme ji tmavou stejně
+       jako Hero/patička (obě na kraji stránky), místo výchozí bílé — ať to
+       vypadá jako plynulé pozadí a ne bílá mezera, aniž bychom kvůli tomu
+       museli posouvat patičku samotnou. */
+    background-color: var(--color-primary-dark);
 }
 
 body {
@@ -139,10 +146,12 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
-/* Od šířky, kde je fotka v sekci O mně vlevo vedle textu/checklistu
-   (viz .about layout), ať text a body place vyjíždí směrem od fotky —
-   vodorovně zleva místo odshora. */
-@media (min-width: 640px) {
+/* Od šířky, kde je fotka v sekci O mně opravdu vlevo vedle textu/checklistu
+   (viz .about layout — do 900px je text nahoře přes celou šířku, i na
+   tabletu na výšku), ať text vyjíždí směrem od fotky — vodorovně zleva
+   místo odshora. Pod touhle šířkou zůstává výchozí svislý fade-up efekt
+   stejně jako u ostatních prvků. */
+@media (min-width: 901px) {
     [data-aos="fade-right"] {
         transform: translateX(-28px);
     }

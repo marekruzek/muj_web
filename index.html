@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marek Růžek — Weby pro živnostníky a malé firmy</title>
+    <meta name="description" content="Navrhuji a vytvářím moderní webové stránky pro živnostníky a malé firmy — od nápadu až po ostré spuštění.">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.min.css">
+</head>
+<body>
+
+    <!-- ===== NAVIGACE ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <svg class="nav__logo-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                    <circle cx="22" cy="22" r="19" stroke="rgba(234,242,251,0.18)"/>
+                    <ellipse cx="22" cy="22" rx="8" ry="19" stroke="rgba(234,242,251,0.18)"/>
+                    <path d="M3 22h38M7 12h30M7 32h30" stroke="rgba(234,242,251,0.12)"/>
+                    <circle cx="3" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="41" cy="22" r="2" fill="currentColor"/>
+                    <text x="22" y="30" text-anchor="middle" font-weight="800" font-size="22" fill="currentColor">M</text>
+                </svg>
+                <span class="nav__logo-text">
+                    <span class="nav__logo-name">Marek Růžek</span>
+                    <span class="nav__logo-tagline">Tvorba webů</span>
+                </span>
+            </a>
+
+            <label class="nav__toggle hamburger" for="navToggle">
+                <input type="checkbox" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navMenu">
+                <svg viewBox="0 0 32 32">
+                    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                    <path class="line" d="M7 16 27 16"></path>
+                </svg>
+            </label>
+
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="#projekty" class="nav__link">Projekty</a></li>
+                <li><a href="#sluzby" class="nav__link">Služby</a></li>
+                <li><a href="#balicky" class="nav__link">Balíčky</a></li>
+                <li><a href="#proces" class="nav__link">Proces</a></li>
+                <li><a href="#o-mne" class="nav__link">O mně</a></li>
+                <li><a href="#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <canvas id="particleCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+            <div class="container hero__inner">
+                <h1 class="hero__title" data-aos="fade-up">Weby, které vaší firmě pomůžou růst.</h1>
+                <p class="hero__text" data-aos="fade-up" data-aos-delay="100">Navrhuji a vytvářím moderní webové stránky pro živnostníky a malé firmy — od prvního nápadu až po ostré spuštění. Bez zbytečných kliček, s důrazem na výsledek.</p>
+                <div class="hero__actions" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#kontakt" class="btn btn--accent">Nezávazná poptávka</a>
+                    <a href="#projekty" class="btn btn--outline">Prohlédnout projekty</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJEKTY ===== -->
+        <section id="projekty" class="section section--light">
+            <div class="container">
+                <div class="section__heading" data-aos="fade-up">
+                    <h2>Vybrané projekty</h2>
+                    <p>Tři weby, tři různé obory, jeden přístup: čistý design a funkčnost na prvním místě.</p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="project-card__inner">
+                            <div class="project-card__image project-card__image--1">
+                                <picture>
+                                    <source srcset="images/back2live-card.webp" type="image/webp">
+                                    <img src="images/back2live-card.png" alt="Náhled webu Back2Live" loading="lazy" width="1400" height="755">
+                                </picture>
+                            </div>
+                            <div class="project-card__body">
+                                <h3>Back2Live</h3>
+                                <p>Edukativní web o zdravém životním stylu s přehlednou strukturou článků a produktovou sekcí. Postavený na čisté typografii bez závislosti na fotobankách.</p>
+                                <ul class="tags">
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                                <div class="project-card__links">
+                                    <a href="https://marekruzek.github.io/Back2Live-edukativni_web_/" target="_blank" rel="noopener noreferrer" class="project-card__link--demo">Živé demo →</a>
+                                    <a href="https://github.com/marekruzek/Back2Live-edukativni_web_" target="_blank" rel="noopener noreferrer">Zdrojový kód →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-card__inner">
+                            <div class="project-card__image project-card__image--2">
+                                <picture>
+                                    <source srcset="images/studio-aura-card.webp" type="image/webp">
+                                    <img src="images/studio-aura-card.png" alt="Náhled webu Studio Aura" loading="lazy" width="1400" height="690">
+                                </picture>
+                            </div>
+                            <div class="project-card__body">
+                                <h3>Studio Aura</h3>
+                                <p>Elegantní prezentace vlasového studia s galerií prací, ceníkem a recenzemi. Web, který prodává řemeslo přes první dojem.</p>
+                                <ul class="tags">
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                                <div class="project-card__links">
+                                    <a href="https://marekruzek.github.io/Studio-Aura/" target="_blank" rel="noopener noreferrer" class="project-card__link--demo">Živé demo →</a>
+                                    <a href="https://github.com/marekruzek/Studio-Aura" target="_blank" rel="noopener noreferrer">Zdrojový kód →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card--extra reveal" id="extraProject" hidden>
+                        <div class="project-card__inner">
+                            <div class="project-card__image project-card__image--3">
+                                <picture>
+                                    <source srcset="images/momentum-card.webp" type="image/webp">
+                                    <img src="images/momentum-card.png" alt="Náhled webu Momentum Online Coaching" loading="lazy" width="1400" height="689">
+                                </picture>
+                            </div>
+                            <div class="project-card__body">
+                                <h3>Momentum Online Coaching</h3>
+                                <p>Výrazná landing page pro online fitness trenéra. Tmavý design, plynulé scrollování a jasná cesta k objednávce.</p>
+                                <ul class="tags">
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                                <div class="project-card__links">
+                                    <a href="https://marekruzek.github.io/Momentum-Online-Coaching/" target="_blank" rel="noopener noreferrer" class="project-card__link--demo">Živé demo →</a>
+                                    <a href="https://github.com/marekruzek/Momentum-Online-Coaching" target="_blank" rel="noopener noreferrer">Zdrojový kód →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="project-more">
+                    <button type="button" class="btn btn--outline-dark" id="toggleProjects" aria-expanded="false" aria-controls="extraProject">Zobrazit další projekt</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SLUŽBY ===== -->
+        <section id="sluzby" class="section section--dark">
+            <div class="container">
+                <div class="section__heading" data-aos="fade-up">
+                    <h2>Co nabízím</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg>
+                        </div>
+                        <h3>Webové stránky</h3>
+                        <p>Moderní prezentace, která vaše podnikání ukáže v tom nejlepším světle.</p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                        </div>
+                        <h3>Návrh webu</h3>
+                        <p>Vizuální koncept a struktura ještě předtím, než padne první řádek kódu.</p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                        </div>
+                        <h3>Správa webu</h3>
+                        <p>Klidná hlava díky pravidelným úpravám a technické péči.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BALÍČKY ===== -->
+        <section id="balicky" class="section section--light">
+            <div class="container">
+                <div class="section__heading" data-aos="fade-up">
+                    <span class="badge">Omezená nabídka pro první klienty</span>
+                    <h2>Balíčky a ceny</h2>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+                        <h3>START</h3>
+                        <p class="pricing-card__subtitle">Profesionální základ pro rozjezd</p>
+                        <p class="pricing-card__desc">Pro živnostníky a menší firmy, které potřebují moderní web bez zbytečných komplikací.</p>
+                        <div class="pricing-card__price">
+                            <span class="price-old">20 000 Kč</span>
+                            <span class="price-new">10 000 Kč</span>
+                        </div>
+                        <p class="pricing-card__note">startovací cena pro první klienty</p>
+                        <a href="#kontakt" class="btn btn--outline-dark">Mám zájem</a>
+                    </div>
+
+                    <div class="pricing-card pricing-card--featured" data-aos="fade-up" data-aos-delay="100">
+                        <span class="pricing-card__badge">Nejoblíbenější</span>
+                        <h3>PRO</h3>
+                        <p class="pricing-card__subtitle">Web na míru pro růst</p>
+                        <p class="pricing-card__desc">Pro firmy, které chtějí originální design odlišující se od konkurence.</p>
+                        <div class="pricing-card__price">
+                            <span class="price-old">30 000 Kč</span>
+                            <span class="price-new">20 000 Kč</span>
+                        </div>
+                        <p class="pricing-card__note">startovací cena pro první klienty</p>
+                        <a href="#kontakt" class="btn btn--accent">Mám zájem</a>
+                    </div>
+
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>SPRÁVA WEBU</h3>
+                        <p class="pricing-card__subtitle">Klid a jistota</p>
+                        <p class="pricing-card__desc">Pravidelné aktualizace, technická podpora a drobné úpravy, ať máte klidnou hlavu.</p>
+                        <div class="pricing-card__price">
+                            <span class="price-new">Od 1 000 Kč / měsíc</span>
+                        </div>
+                        <a href="#kontakt" class="btn btn--outline-dark">Mám zájem</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROCES ===== -->
+        <section id="proces" class="section section--dark">
+            <div class="container">
+                <div class="section__heading" data-aos="fade-up">
+                    <h2>Jak probíhá spolupráce?</h2>
+                </div>
+
+                <ol class="process-list">
+                    <li class="process-step" data-aos="fade-up">
+                        <span class="process-step__number">01</span>
+                        <div class="process-step__body">
+                            <h3>Konzultace</h3>
+                            <p>Probereme váš cíl, obor a co od webu čekáte.</p>
+                        </div>
+                        <span class="process-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+                    </li>
+                    <li class="process-step" data-aos="fade-up">
+                        <span class="process-step__number">02</span>
+                        <div class="process-step__body">
+                            <h3>Návrh</h3>
+                            <p>Připravím vizuální koncept, který sedí vaší značce.</p>
+                        </div>
+                        <span class="process-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+                    </li>
+                    <li class="process-step" data-aos="fade-up">
+                        <span class="process-step__number">03</span>
+                        <div class="process-step__body">
+                            <h3>Tvorba</h3>
+                            <p>Návrh ožije jako plně funkční web.</p>
+                        </div>
+                        <span class="process-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+                    </li>
+                    <li class="process-step" data-aos="fade-up">
+                        <span class="process-step__number">04</span>
+                        <div class="process-step__body">
+                            <h3>Spuštění</h3>
+                            <p>Web nasadíme a připravíme na první návštěvníky.</p>
+                        </div>
+                        <span class="process-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
+                    </li>
+                    <li class="process-step" data-aos="fade-up">
+                        <span class="process-step__number">05</span>
+                        <div class="process-step__body">
+                            <h3>Podpora a správa webu</h3>
+                            <p>Zůstávám u toho i po spuštění, kdybyste cokoliv potřebovali doladit.</p>
+                        </div>
+                        <span class="process-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg></span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===== O MNĚ ===== -->
+        <section id="o-mne" class="section section--light">
+            <div class="container about">
+                <div class="about__text">
+                    <h2 data-aos="fade-right">Ahoj, jsem Marek</h2>
+                    <p data-aos="fade-right" data-aos-delay="100">Tvořím weby pro firmy a živnostníky, kteří chtějí online prezentaci, na kterou budou hrdí. Každý projekt beru jako spolupráci — ne jako šablonu na kopírování.</p>
+                </div>
+
+                <div class="about__media">
+                    <picture>
+                        <source srcset="images/mojefotka-card.webp" type="image/webp">
+                        <img src="images/mojefotka-card.jpg" alt="Marek Růžek" loading="lazy" width="900" height="1125">
+                    </picture>
+                </div>
+
+                <ul class="checklist">
+                    <li data-aos="fade-right" data-aos-delay="0"><span class="checklist__icon">✓</span> Individuální návrh pro každého klienta</li>
+                    <li data-aos="fade-right" data-aos-delay="80"><span class="checklist__icon">✓</span> Moderní design bez zbytečných ozdůbek</li>
+                    <li data-aos="fade-right" data-aos-delay="160"><span class="checklist__icon">✓</span> Kvalitní zpracování od začátku do konce</li>
+                    <li data-aos="fade-right" data-aos-delay="240"><span class="checklist__icon">✓</span> Přímá a osobní komunikace</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== KONTAKT ===== -->
+        <section id="kontakt" class="section section--dark">
+            <div class="container">
+                <div class="section__heading" data-aos="fade-up">
+                    <h2>Máte projekt? Pojďme ho vytvořit.</h2>
+                    <p>Napište mi pár slov o tom, co potřebujete, a ozvu se vám do 24 hodin.</p>
+                </div>
+
+                <form class="contact-form" id="contactForm" novalidate data-aos="fade-up">
+                    <input type="hidden" name="access_key" value="1a6b7f9a-b923-469f-9a7a-6e05bbebfa3c">
+                    <input type="hidden" name="subject" value="Nová poptávka z webu">
+                    <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Jméno *</label>
+                            <input type="text" id="name" name="name" required autocomplete="name">
+                            <span class="form-error">Zadejte prosím vaše jméno.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Název firmy / Živnosti</label>
+                            <input type="text" id="company" name="company" autocomplete="organization">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                            <span class="form-error">Zadejte prosím platný e-mail.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectType">Typ projektu</label>
+                            <select id="projectType" name="projectType">
+                                <option value="Nový web">Nový web</option>
+                                <option value="Redesign">Redesign</option>
+                                <option value="Správa webu">Správa webu</option>
+                                <option value="Jiné">Jiné</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Zpráva *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="form-error">Napište mi prosím pár slov o projektu.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn--accent" id="formSubmit">Odeslat poptávku</button>
+
+                    <p class="form-success" id="formSuccess" role="status" hidden>Děkuji za zprávu! Ozvu se vám co nejdříve.</p>
+                    <p class="form-submit-error" id="formError" role="alert" hidden>Něco se nepovedlo a zprávu se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište přímo na <a href="mailto:marekruzek321@gmail.com">marekruzek321@gmail.com</a>.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__name">Marek Růžek</p>
+            <ul class="footer__links">
+                <li><a href="https://www.instagram.com/marek_ruzek/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/marekruzek" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="mailto:marekruzek321@gmail.com">E-mail</a></li>
+            </ul>
+            <p class="footer__copy">&copy; 2026 Marek Růžek</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">↑</a>
+
+    <script src="script.min.js" defer></script>
+</body>
+</html>

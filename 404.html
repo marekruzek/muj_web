@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stránka nenalezena (404) — Marek Růžek</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="style.min.css">
+</head>
+<body>
+
+    <!-- ===== NAVIGACE ===== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <svg class="nav__logo-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                    <circle cx="22" cy="22" r="19" stroke="rgba(234,242,251,0.18)"/>
+                    <ellipse cx="22" cy="22" rx="8" ry="19" stroke="rgba(234,242,251,0.18)"/>
+                    <path d="M3 22h38M7 12h30M7 32h30" stroke="rgba(234,242,251,0.12)"/>
+                    <circle cx="3" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="41" cy="22" r="2" fill="currentColor"/>
+                    <text x="22" y="30" text-anchor="middle" font-weight="800" font-size="22" fill="currentColor">M</text>
+                </svg>
+                <span class="nav__logo-text">
+                    <span class="nav__logo-name">Marek Růžek</span>
+                    <span class="nav__logo-tagline">Tvorba webů</span>
+                </span>
+            </a>
+
+            <label class="nav__toggle hamburger" for="navToggle">
+                <input type="checkbox" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navMenu">
+                <svg viewBox="0 0 32 32">
+                    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                    <path class="line" d="M7 16 27 16"></path>
+                </svg>
+            </label>
+
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html#projekty" class="nav__link">Projekty</a></li>
+                <li><a href="index.html#sluzby" class="nav__link">Služby</a></li>
+                <li><a href="index.html#balicky" class="nav__link">Balíčky</a></li>
+                <li><a href="index.html#proces" class="nav__link">Proces</a></li>
+                <li><a href="index.html#o-mne" class="nav__link">O mně</a></li>
+                <li><a href="index.html#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== 404 ===== -->
+        <section class="error-page">
+            <div class="error-page__inner">
+                <p class="error-page__code">404</p>
+                <h1 class="error-page__title">Stránka nenalezena</h1>
+                <p class="error-page__text">Tahle stránka bohužel neexistuje nebo byla přesunuta. Zkuste to zkontrolovat znovu z hlavní stránky.</p>
+                <a href="index.html" class="btn btn--accent">Zpět na hlavní stránku</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__name">Marek Růžek</p>
+            <ul class="footer__links">
+                <li><a href="https://www.instagram.com/marek_ruzek/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/marekruzek" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="mailto:marekruzek321@gmail.com">E-mail</a></li>
+            </ul>
+            <p class="footer__copy">&copy; 2026 Marek Růžek</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            /* ============ MOBILNÍ NAVIGACE ============ */
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            navToggle.addEventListener('change', () => {
+                navMenu.classList.toggle('is-open', navToggle.checked);
+                navToggle.setAttribute('aria-expanded', navToggle.checked);
+            });
+
+            navMenu.querySelectorAll('.nav__link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('is-open');
+                    navToggle.checked = false;
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            /* ============ ZRUŠENÍ "ZASEKNUTÉHO" HOVER STAVU PO KLEPNUTÍ NA MOBILU ============ */
+            if (window.matchMedia('(hover: none)').matches) {
+                document.addEventListener('click', (e) => {
+                    const target = e.target.closest('a, button');
+                    if (target) target.blur();
+                });
+            }
+
+            /* ============ VZNÁŠEJÍCÍ SE HVĚZDY NA POZADÍ ============ */
+            // Stejný vizuál jako "floating-dots" na tmavých sekcích hlavní
+            // stránky (Služby, Proces, Kontakt) — bez sítě částic z Hero.
+            const errorSection = document.querySelector('.error-page');
+
+            if (errorSection && !prefersReducedMotion) {
+                const wrap = document.createElement('div');
+                wrap.className = 'floating-dots';
+                wrap.setAttribute('aria-hidden', 'true');
+
+                const dotCount = window.innerWidth < 768 ? 20 : 55;
+
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'floating-dot';
+
+                    const size = (Math.random() * 1.8 + 1.4).toFixed(1);
+                    const left = (Math.random() * 100).toFixed(1);
+                    const top = (Math.random() * 100).toFixed(1);
+                    const duration = (Math.random() * 5 + 5).toFixed(1);
+                    const delay = (-Math.random() * duration).toFixed(1);
+                    const drift = Math.round(Math.random() * 18 + 12);
+                    const opacity = (Math.random() * 0.2 + 0.25).toFixed(2);
+                    const useAccent = Math.random() < 0.45;
+
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    dot.style.left = `${left}%`;
+                    dot.style.top = `${top}%`;
+                    dot.style.opacity = opacity;
+                    dot.style.backgroundColor = useAccent ? 'var(--color-accent)' : 'var(--text-on-dark)';
+                    dot.style.animationDuration = `${duration}s`;
+                    dot.style.animationDelay = `${delay}s`;
+                    dot.style.setProperty('--dot-drift', `-${drift}px`);
+
+                    wrap.appendChild(dot);
+                }
+
+                errorSection.appendChild(wrap);
+            }
+        });
+    </script>
+</body>
+</html>

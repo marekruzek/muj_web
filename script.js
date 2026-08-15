@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* ============ ZRUŠENÍ "ZASEKNUTÉHO" HOVER STAVU PO KLEPNUTÍ NA MOBILU ============ */
+    // Na dotykových zařízeních prohlížeč po klepnutí na odkaz/tlačítko ponechá
+    // prvek zaostřený, takže vizuálně zůstává v "hover" stavu (:focus-visible),
+    // dokud uživatel neklepne jinam. Odfokusujeme ho hned po klepnutí, ať se
+    // efekt projeví jen v momentě kliknutí.
+    if (window.matchMedia('(hover: none)').matches) {
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('a, button');
+            if (target) target.blur();
+        });
+    }
+
     /* ============ SKOK NA SEKCI — NA DESKTOPU ROVNOU NA STŘED OBRAZOVKY ============ */
     const HEADER_HEIGHT = 72;
 

@@ -1270,6 +1270,13 @@ main {
 }
 
 @media (max-width: 768px) {
+    /* Menší svislý padding u Hero, ať kousek nadpisu sekce Projekty
+       "nakoukne" do viewportu hned při prvním načtení bez scrollování
+       (a stihne se tak rovnou i jeho scroll-reveal animace). */
+    .hero {
+        padding-block: var(--space-xl);
+    }
+
     .nav__toggle {
         display: inline-flex;
     }

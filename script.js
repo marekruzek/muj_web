@@ -1,3 +1,8 @@
+/* Bez posluchače na touchstart iOS Safari na dotek vůbec neaktivuje :active
+   na odkazech/tlačítkách — s ním se dotykem spustí stejný efekt, jaký má
+   PC verze při hoveru (viz :active pravidla ve style.css). */
+document.addEventListener('touchstart', () => {}, { passive: true });
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

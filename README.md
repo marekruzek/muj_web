@@ -16,6 +16,7 @@ Tech stack
 HTML5 / CSS3 / vanilla JavaScript
 Hostováno na GitHub Pages
 Vlastní doména přes WEDOS
-Kontakt
 
-Máte projekt? marekruzek.cz/#kontakt
+WEB níže
+
+https://marekruzek.cz/

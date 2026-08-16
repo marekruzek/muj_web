@@ -143,9 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
             tickingScale = false;
 
             const viewportCenter = window.innerHeight / 2;
-            // Stejná hranice jako v CSS (.about) — od 640px je fotka vlevo
-            // vedle textu/checklistu, pod tím je to jeden sloupec (mobil).
-            const isSideBySide = window.matchMedia('(min-width: 640px)').matches;
+            // Stejná hranice jako v CSS (.about) — teprve od 901px je fotka
+            // opravdu vlevo vedle textu/checklistu, do té doby (i na tabletu
+            // na výšku) je layout jednosloupcový/naskládaný.
+            const isSideBySide = window.matchMedia('(min-width: 901px)').matches;
 
             scaleImages.forEach(el => {
                 const rect = el.getBoundingClientRect();

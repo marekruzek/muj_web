@@ -1319,6 +1319,27 @@ main {
     .checklist {
         justify-content: center;
     }
+
+    /* Ruční zalomení odstavce na dvě věty — druhá věta začíná na
+       nové řádce, zarovnaná stejně vlevo jako fotka pod ní (ta tu
+       díky margin-inline: 0 výše začíná úplně vlevo). */
+    .about__text-line {
+        display: block;
+    }
+
+    .about__text-line + .about__text-line {
+        margin-top: var(--space-xs);
+    }
+}
+
+/* Na mobilu/tabletu na šířku ať nejde nic vodorovně scrollovat — i drobný
+   přetečený pixel by tu (spolu s bezpečnou zónou u výřezu na iPhonu) uměl
+   po straně odhalit bílý pruh pozadí místo obsahu. */
+@media (max-width: 1023px) and (orientation: landscape) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
 }
 
 @media (max-width: 768px) {

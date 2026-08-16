@@ -143,10 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
             tickingScale = false;
 
             const viewportCenter = window.innerHeight / 2;
-            // Stejná hranice jako v CSS (.about) — teprve od 901px je fotka
-            // opravdu vlevo vedle textu/checklistu, do té doby (i na tabletu
-            // na výšku) je layout jednosloupcový/naskládaný.
-            const isSideBySide = window.matchMedia('(min-width: 901px)').matches;
+            // Stejné hranice jako v CSS (.about): text je vedle fotky teprve
+            // od 901px (do té doby, i na tabletu na výšku, je nahoře přes
+            // celou šířku), ale checklist je vedle fotky už od 640px (na
+            // tabletu je vedle ní, ne pod ní jako na mobilu).
+            const isTextBeside = window.matchMedia('(min-width: 901px)').matches;
+            const isChecklistBeside = window.matchMedia('(min-width: 640px)').matches;
 
             scaleImages.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -168,19 +170,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = aboutContainer.querySelector('.about__text');
                 const checklist = aboutContainer.querySelector('.checklist');
 
-                if (isSideBySide) {
-                    // Text a checklist jsou vedle fotky (tablet i desktop) — jak se
-                    // fotka zmenšuje, zajíždí směrem k ní (doleva).
-                    const textShift = progress * MAX_TEXT_SHIFT;
-                    if (text) text.style.transform = `translateX(-${textShift}px)`;
-                    if (checklist) checklist.style.transform = `translateX(-${textShift}px)`;
-                } else {
-                    // Na mobilu je checklist POD fotkou v jednom sloupci — zmenšení kolem
-                    // středu (scale) by pod fotkou otevřelo mezeru, tak se checklist
-                    // posune nahoru přesně o tolik, o kolik se fotka zmenšila zespodu.
-                    const gapClose = (el.offsetHeight * (1 - cardScale)) / 2;
-                    if (text) text.style.transform = '';
-                    if (checklist) checklist.style.transform = `translateY(-${gapClose}px)`;
+                // Prvky vedle fotky zajíždí směrem k ní (doleva), jak se zmenšuje.
+                const textShift = progress * MAX_TEXT_SHIFT;
+                if (text) text.style.transform = isTextBeside ? `translateX(-${textShift}px)` : '';
+
+                if (checklist) {
+                    if (isChecklistBeside) {
+                        checklist.style.transform = `translateX(-${textShift}px)`;
+                    } else {
+                        // Na mobilu je checklist POD fotkou v jednom sloupci — zmenšení kolem
+                        // středu (scale) by pod fotkou otevřelo mezeru, tak se checklist
+                        // posune nahoru přesně o tolik, o kolik se fotka zmenšila zespodu.
+                        const gapClose = (el.offsetHeight * (1 - cardScale)) / 2;
+                        checklist.style.transform = `translateY(-${gapClose}px)`;
+                    }
                 }
             });
         };

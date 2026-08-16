@@ -66,7 +66,13 @@ html {
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-body);
-    background-color: var(--color-bg-light);
+    /* Každá sekce (Hero, .section--light/--dark, patička) si nastavuje
+       vlastní pozadí, takže tahle hodnota nikdy není v layoutu vidět —
+       jenže iOS Safari s viewport-fit=cover ji použije k vybarvení
+       plochy pod pruhem s adresou/domovní čárou, a světlá barva tam pak
+       probleskávala jako bílý pruh pod patičkou. Tmavá, stejná jako
+       html/Hero/patička, ať i tahle "neviditelná" plocha ladí. */
+    background-color: var(--color-primary-dark);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
